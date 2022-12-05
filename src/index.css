@@ -10,9 +10,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 드래그 방지코드 */
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.pageWrapper {
+  overflow: hidden;
+  height: 55vh;
+  padding: 0 10px;
+  color: #909090;
+}
+
+div[placeholder]:empty::before {
+  display: block;
+  content: attr(placeholder);
+  color:#909090;
+}
+
+div:focus {
+  outline:none;
 }

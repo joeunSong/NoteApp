@@ -1,0 +1,88 @@
+
+body.firstAdd:before{
+    content:'';
+    vertical-align:middle;
+}
+.firstAdd {
+    background:#ffcd5a;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:120px;
+    font-size:40px;
+    padding:0 0.5em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin: 70px 0 0 80px;
+    display: inline-block;
+    border-radius: 25px;
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+				      0 2px 0 -1px rgba(0,0,0,0.13), 
+				      0 3px 0 -1px rgba(0,0,0,0.08), 
+				      0 3px 13px -1px rgba(0,0,0,0.21);
+}
+.firstAdd:hover {
+    background:#fff;
+    color:#ffb300;
+    border-radius: 0px;
+}
+.firstAdd:before, .firstAdd:after {
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #ffcd5a;
+    transition:400ms ease all;
+}
+.firstAdd:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.firstAdd:hover:before, .firstAdd:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+
+.justBtn {
+    border: 1px solid #00000036;
+    color: white;
+    margin: 10px;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    width: 7%;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #ffc964;
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+				      0 2px 0 -1px rgba(0,0,0,0.13), 
+				      0 3px 0 -1px rgba(0,0,0,0.08), 
+				      0 3px 13px -1px rgba(0,0,0,0.21);
+    /* 유동성 */
+    float: right; 
+}
+.justBtn:active {
+    top: 1px;
+	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+	position: relative;
+}
+.justBtn:hover {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+    -webkit-tap-highlight-color : transparent;
+}
