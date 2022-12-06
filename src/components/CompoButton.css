@@ -53,11 +53,12 @@ body.firstAdd:before{
 .justBtn {
     border: 1px solid #00000036;
     color: white;
-    margin: 10px;
+    margin: 0;
+    font-weight: bold;
     display: inline-block;
     padding: 4px 12px;
     font-size: 12px;
-    width: 7%;
+    width: 8%;
     border-radius: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -69,7 +70,6 @@ body.firstAdd:before{
 				      0 2px 0 -1px rgba(0,0,0,0.13), 
 				      0 3px 0 -1px rgba(0,0,0,0.08), 
 				      0 3px 13px -1px rgba(0,0,0,0.21);
-    /* 유동성 */
     float: right; 
 }
 .justBtn:active {
@@ -85,4 +85,7 @@ body.firstAdd:before{
 input:focus {
     outline: none;
     -webkit-tap-highlight-color : transparent;
+}
+.removeBtn {
+    width: 50px;
 }
