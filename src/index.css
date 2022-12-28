@@ -49,3 +49,11 @@ textarea {
 textarea:focus {
   outline: none;
 }
+
+.listOuter {
+  height: 230px;
+  padding: 0;
+  overflow-y: auto;
+  /* border: 1px solid black; */
+  margin: 5px 0 10px 0;
+}

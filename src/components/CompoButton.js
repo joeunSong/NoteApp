@@ -3,19 +3,43 @@ import { useNavigate } from 'react-router-dom';
 import './CompoButton.css';
 
 
-function CompoButton({ children, styleType, isWrite, btnPos }) {
+function CompoButton(props) {
   const navigate = useNavigate();
+  
+  const onCheckDone = (e) => {
+    // setMemo({
+    //     id: "1",
+    //     [title]: value,
+    //     [contents]: value
+    // });
+    console.log(e);
+  }
+  const onClickBtn = (e) => {
+    switch (props.id){
+      case 'saveBtn' :
+        onCheckDone(e);
+        break;
+      case 'removeBtn' :
+        navigate("/");
+        break;
+      case 'backBtn' :
+        navigate("/");
+        break;
+      case 'createBtn' :
+        navigate("/write");
+        break;
+    }
+  };
 
   return ( 
     <div>
-      <div className={styleType}
-        onClick={() => isWrite ? navigate("/"):navigate("/write")}
-        style={{ float: btnPos }}
-        >
-          { children }
+      <div className={props.styleType} id={props.id}
+        onClick={props.onClick}
+        style={{ float: props.float }} >
+          { props.children }
       </div>
     </div>
   )
 }
 
-export default CompoButton
+export default CompoButton;
