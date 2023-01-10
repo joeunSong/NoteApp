@@ -7,9 +7,10 @@ import { listOrder_store, inputs_store } from '../../store';
 function WritePage() {
   const navigate = useNavigate();
   const prevData = JSON.parse(localStorage.getItem('localMemo') || '[]');
-  const [isSame, setIsSame] = useState(true);
+  const [isSame, setIsSame] = useState(false);
   const { listOrder, removeListOrder } = listOrder_store();
-  const { title, setTitle, context, setContext, removeAllInputs } = inputs_store();
+  const { id, setId, title, setTitle, context, setContext, removeAllInputs } = inputs_store();
+  console.log("listOrder: ", listOrder)
 
   useEffect(() => {
     if(!(listOrder === "")) {
@@ -18,6 +19,13 @@ function WritePage() {
       console.log("hi", listOrder);
     }
   }, []);
+
+  useEffect (() => {
+    if(!(listOrder === "")) {
+      let isIf = prevData[listOrder].title===title && prevData[listOrder].context===context;
+      isIf ? setIsSame(true) : setIsSame(false);
+    }
+  }, [prevData])
 
   const onChangeSet = (e) => {
     const { name, value }= e.target;
@@ -44,6 +52,10 @@ function WritePage() {
   }
 
   const onSave = () => {
+    if (isSame) {
+      navigate("/");
+      return;
+    }
     if(title === '' || context === '') {
       alert('Please enter the title and context.');
       return;
@@ -55,16 +67,19 @@ function WritePage() {
   }
 
   const onRemove = () => {
+    if(!(listOrder === "")) {
+    let prevData = JSON.parse(localStorage.getItem('localMemo') || '[]');
+    prevData.pop(listOrder);
+    console.log(prevData);
+    localStorage.setItem('localMemo', JSON.stringify(prevData));
+    alert('Deleted.');
+    }
     removeListOrder();
     removeAllInputs();
     navigate("/");
   }
 
   const onBack = () => {
-    if(!(listOrder === "")) {
-      let isIf = prevData[listOrder].title===title && prevData[listOrder].context===context;
-      isIf ? setIsSame(true) : setIsSame(false);
-    }
     console.log(isSame);
     if (title === '' || context === '' || isSame){
       removeListOrder();
